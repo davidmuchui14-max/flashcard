@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8f5">
+    <meta name="description" content="Create flashcard decks by topic and study at your own pace.">
+    <title>Flashcards — Study Space</title>
+    <link rel="stylesheet" href="flashcards.css">
+    <script src="flashcards.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="flashcards.html" aria-label="Study Space home">
+                <span class="brand-mark" aria-hidden="true">f</span>
+                <span>studyspace</span>
+            </a>
+            <a class="back-link" href="index.html">Back to website</a>
+        </header>
+
+        <main id="app" class="main-content" tabindex="-1"></main>
+
+        <footer class="site-footer">
+            <span>Your cards stay in this browser.</span>
+            <span>Made for curious minds <span aria-hidden="true">✳</span></span>
+        </footer>
+    </div>
+
+    <dialog id="deck-dialog" class="form-dialog">
+        <form id="deck-form" class="dialog-form">
+            <div class="dialog-heading">
+                <div>
+                    <p class="eyebrow">YOUR LIBRARY</p>
+                    <h2 id="deck-dialog-title">Create a deck</h2>
+                </div>
+                <button class="icon-button" type="button" data-close-dialog aria-label="Close dialog">×</button>
+            </div>
+            <input id="deck-id" name="deckId" type="hidden">
+            <label for="deck-name">Deck name</label>
+            <input id="deck-name" name="deckName" type="text" maxlength="80" placeholder="e.g. Spanish basics" required>
+            <label for="deck-category">Topic</label>
+            <select id="deck-category" name="categoryId" required></select>
+            <div class="dialog-actions">
+                <button class="button button-quiet" type="button" data-close-dialog>Cancel</button>
+                <button class="button button-primary" type="submit">Save deck</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="card-dialog" class="form-dialog">
+        <form id="card-form" class="dialog-form">
+            <div class="dialog-heading">
+                <div>
+                    <p class="eyebrow">BUILD YOUR DECK</p>
+                    <h2 id="card-dialog-title">Add a flashcard</h2>
+                </div>
+                <button class="icon-button" type="button" data-close-dialog aria-label="Close dialog">×</button>
+            </div>
+            <input id="card-id" name="cardId" type="hidden">
+            <label for="card-question">Question</label>
+            <textarea id="card-question" name="question" rows="3" maxlength="1000" placeholder="What do you want to remember?" required></textarea>
+            <label for="card-answer">Answer</label>
+            <textarea id="card-answer" name="answer" rows="4" maxlength="2000" placeholder="Write the answer here..." required></textarea>
+            <div class="dialog-actions">
+                <button class="button button-quiet" type="button" data-close-dialog>Cancel</button>
+                <button class="button button-primary" type="submit">Save card</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
